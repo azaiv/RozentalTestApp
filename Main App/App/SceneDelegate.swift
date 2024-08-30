@@ -8,13 +8,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
         
-        let vc = WelcomeViewController()
+        let vc = UINavigationController(rootViewController: WelcomeViewController())
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.tintColor = .tintColor
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
         

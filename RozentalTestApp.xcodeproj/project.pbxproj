@@ -9,21 +9,39 @@
 /* Begin PBXBuildFile section */
 		55846F202C81B189002CF1CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F1F2C81B189002CF1CE /* AppDelegate.swift */; };
 		55846F222C81B189002CF1CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F212C81B189002CF1CE /* SceneDelegate.swift */; };
-		55846F242C81B189002CF1CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F232C81B189002CF1CE /* ViewController.swift */; };
+		55846F242C81B189002CF1CE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F232C81B189002CF1CE /* WelcomeViewController.swift */; };
 		55846F292C81B18A002CF1CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55846F282C81B18A002CF1CE /* Assets.xcassets */; };
 		55846F2C2C81B18A002CF1CE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 55846F2B2C81B18A002CF1CE /* Base */; };
 		55846F382C81B25C002CF1CE /* UIWindow + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F372C81B25C002CF1CE /* UIWindow + Ext.swift */; };
+		55846F3E2C81B539002CF1CE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F3D2C81B539002CF1CE /* AuthService.swift */; };
+		55846F432C81B5AC002CF1CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F422C81B5AC002CF1CE /* Constants.swift */; };
+		55846F492C81B8E6002CF1CE /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F482C81B8E6002CF1CE /* AuthModel.swift */; };
+		55846F4D2C81C329002CF1CE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F4C2C81C329002CF1CE /* CustomButton.swift */; };
+		55846F4F2C81CA7F002CF1CE /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F4E2C81CA7F002CF1CE /* WelcomeViewModel.swift */; };
+		55846F522C81CB1F002CF1CE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F512C81CB1F002CF1CE /* AuthViewController.swift */; };
+		55846F542C81D350002CF1CE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F532C81D350002CF1CE /* CustomTextField.swift */; };
+		55846F5A2C81E7A0002CF1CE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F592C81E7A0002CF1CE /* AuthViewModel.swift */; };
+		55846F5C2C81F5D4002CF1CE /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F5B2C81F5D4002CF1CE /* UIViewController + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		55846F1C2C81B189002CF1CE /* RozentalTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RozentalTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55846F1F2C81B189002CF1CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55846F212C81B189002CF1CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		55846F232C81B189002CF1CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		55846F232C81B189002CF1CE /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		55846F282C81B18A002CF1CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55846F2B2C81B18A002CF1CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55846F2D2C81B18A002CF1CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55846F372C81B25C002CF1CE /* UIWindow + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow + Ext.swift"; sourceTree = "<group>"; };
+		55846F3D2C81B539002CF1CE /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		55846F422C81B5AC002CF1CE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		55846F482C81B8E6002CF1CE /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		55846F4C2C81C329002CF1CE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		55846F4E2C81CA7F002CF1CE /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		55846F512C81CB1F002CF1CE /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		55846F532C81D350002CF1CE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		55846F592C81E7A0002CF1CE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		55846F5B2C81F5D4002CF1CE /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +76,9 @@
 			children = (
 				55846F332C81B1BF002CF1CE /* App */,
 				55846F352C81B1D1002CF1CE /* Module */,
+				55846F4A2C81C315002CF1CE /* Helpers */,
+				55846F3C2C81B500002CF1CE /* Service */,
+				55846F412C81B5A4002CF1CE /* Data */,
 				55846F362C81B24B002CF1CE /* Extension */,
 				55846F342C81B1C8002CF1CE /* Resources */,
 			);
@@ -97,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				55846F372C81B25C002CF1CE /* UIWindow + Ext.swift */,
+				55846F5B2C81F5D4002CF1CE /* UIViewController + Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -104,7 +126,9 @@
 		55846F392C81B26C002CF1CE /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				55846F232C81B189002CF1CE /* ViewController.swift */,
+				55846F442C81B6CC002CF1CE /* Model */,
+				55846F452C81B6D5002CF1CE /* View */,
+				55846F462C81B6DA002CF1CE /* ViewModel */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -112,6 +136,9 @@
 		55846F3A2C81B2A9002CF1CE /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				55846F472C81B8DC002CF1CE /* Model */,
+				55846F502C81CB12002CF1CE /* View */,
+				55846F582C81E794002CF1CE /* ViewModel */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -121,6 +148,86 @@
 			children = (
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		55846F3C2C81B500002CF1CE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				55846F3D2C81B539002CF1CE /* AuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		55846F412C81B5A4002CF1CE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				55846F422C81B5AC002CF1CE /* Constants.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		55846F442C81B6CC002CF1CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55846F452C81B6D5002CF1CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55846F232C81B189002CF1CE /* WelcomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55846F462C81B6DA002CF1CE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				55846F4E2C81CA7F002CF1CE /* WelcomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		55846F472C81B8DC002CF1CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55846F482C81B8E6002CF1CE /* AuthModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55846F4A2C81C315002CF1CE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				55846F4B2C81C320002CF1CE /* UIElements */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		55846F4B2C81C320002CF1CE /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				55846F4C2C81C329002CF1CE /* CustomButton.swift */,
+				55846F532C81D350002CF1CE /* CustomTextField.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		55846F502C81CB12002CF1CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55846F512C81CB1F002CF1CE /* AuthViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55846F582C81E794002CF1CE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				55846F592C81E7A0002CF1CE /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,9 +300,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55846F242C81B189002CF1CE /* ViewController.swift in Sources */,
+				55846F522C81CB1F002CF1CE /* AuthViewController.swift in Sources */,
+				55846F242C81B189002CF1CE /* WelcomeViewController.swift in Sources */,
+				55846F4F2C81CA7F002CF1CE /* WelcomeViewModel.swift in Sources */,
+				55846F4D2C81C329002CF1CE /* CustomButton.swift in Sources */,
 				55846F382C81B25C002CF1CE /* UIWindow + Ext.swift in Sources */,
+				55846F5C2C81F5D4002CF1CE /* UIViewController + Ext.swift in Sources */,
+				55846F3E2C81B539002CF1CE /* AuthService.swift in Sources */,
+				55846F432C81B5AC002CF1CE /* Constants.swift in Sources */,
+				55846F542C81D350002CF1CE /* CustomTextField.swift in Sources */,
+				55846F492C81B8E6002CF1CE /* AuthModel.swift in Sources */,
 				55846F202C81B189002CF1CE /* AppDelegate.swift in Sources */,
+				55846F5A2C81E7A0002CF1CE /* AuthViewModel.swift in Sources */,
 				55846F222C81B189002CF1CE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
