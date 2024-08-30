@@ -10,9 +10,9 @@
 		55846F202C81B189002CF1CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F1F2C81B189002CF1CE /* AppDelegate.swift */; };
 		55846F222C81B189002CF1CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F212C81B189002CF1CE /* SceneDelegate.swift */; };
 		55846F242C81B189002CF1CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F232C81B189002CF1CE /* ViewController.swift */; };
-		55846F272C81B189002CF1CE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 55846F262C81B189002CF1CE /* Base */; };
 		55846F292C81B18A002CF1CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55846F282C81B18A002CF1CE /* Assets.xcassets */; };
 		55846F2C2C81B18A002CF1CE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 55846F2B2C81B18A002CF1CE /* Base */; };
+		55846F382C81B25C002CF1CE /* UIWindow + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F372C81B25C002CF1CE /* UIWindow + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +20,10 @@
 		55846F1F2C81B189002CF1CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55846F212C81B189002CF1CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		55846F232C81B189002CF1CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		55846F262C81B189002CF1CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55846F282C81B18A002CF1CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55846F2B2C81B18A002CF1CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55846F2D2C81B18A002CF1CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55846F372C81B25C002CF1CE /* UIWindow + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +40,7 @@
 		55846F132C81B189002CF1CE = {
 			isa = PBXGroup;
 			children = (
-				55846F1E2C81B189002CF1CE /* RozentalTestApp */,
+				55846F1E2C81B189002CF1CE /* Main App */,
 				55846F1D2C81B189002CF1CE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,18 +53,74 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		55846F1E2C81B189002CF1CE /* RozentalTestApp */ = {
+		55846F1E2C81B189002CF1CE /* Main App */ = {
+			isa = PBXGroup;
+			children = (
+				55846F332C81B1BF002CF1CE /* App */,
+				55846F352C81B1D1002CF1CE /* Module */,
+				55846F362C81B24B002CF1CE /* Extension */,
+				55846F342C81B1C8002CF1CE /* Resources */,
+			);
+			path = "Main App";
+			sourceTree = "<group>";
+		};
+		55846F332C81B1BF002CF1CE /* App */ = {
 			isa = PBXGroup;
 			children = (
 				55846F1F2C81B189002CF1CE /* AppDelegate.swift */,
 				55846F212C81B189002CF1CE /* SceneDelegate.swift */,
-				55846F232C81B189002CF1CE /* ViewController.swift */,
-				55846F252C81B189002CF1CE /* Main.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		55846F342C81B1C8002CF1CE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				55846F282C81B18A002CF1CE /* Assets.xcassets */,
 				55846F2A2C81B18A002CF1CE /* LaunchScreen.storyboard */,
 				55846F2D2C81B18A002CF1CE /* Info.plist */,
 			);
-			path = RozentalTestApp;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		55846F352C81B1D1002CF1CE /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				55846F392C81B26C002CF1CE /* Welcome */,
+				55846F3A2C81B2A9002CF1CE /* Auth */,
+				55846F3B2C81B2B4002CF1CE /* Dashboard */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		55846F362C81B24B002CF1CE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				55846F372C81B25C002CF1CE /* UIWindow + Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		55846F392C81B26C002CF1CE /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				55846F232C81B189002CF1CE /* ViewController.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		55846F3A2C81B2A9002CF1CE /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		55846F3B2C81B2B4002CF1CE /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +183,6 @@
 			files = (
 				55846F292C81B18A002CF1CE /* Assets.xcassets in Resources */,
 				55846F2C2C81B18A002CF1CE /* Base in Resources */,
-				55846F272C81B189002CF1CE /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55846F242C81B189002CF1CE /* ViewController.swift in Sources */,
+				55846F382C81B25C002CF1CE /* UIWindow + Ext.swift in Sources */,
 				55846F202C81B189002CF1CE /* AppDelegate.swift in Sources */,
 				55846F222C81B189002CF1CE /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +203,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		55846F252C81B189002CF1CE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				55846F262C81B189002CF1CE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		55846F2A2C81B18A002CF1CE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,12 +342,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JRA8SJKSWZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RozentalTestApp/Info.plist;
+				INFOPLIST_FILE = "Main App/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +355,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = azaiv.apps.RozentalTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -322,12 +374,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JRA8SJKSWZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RozentalTestApp/Info.plist;
+				INFOPLIST_FILE = "Main App/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +387,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = azaiv.apps.RozentalTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
