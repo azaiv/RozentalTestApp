@@ -52,6 +52,13 @@ class WelcomeViewController: UIViewController {
         
         viewModel = WelcomeViewModel()
         
+        AuthService.shared.requestDashboard(
+            username: "test_user",
+            password: "123456aB",
+            completion: { result in
+                
+            })
+        
         setupView()
     }
     
