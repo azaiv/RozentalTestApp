@@ -163,8 +163,8 @@ final class AuthViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.activityIndicator.removeFromSuperview()
                     self.signInButton.isEnabled = false
-                    let vc = UINavigationController(rootViewController: UIViewController())
-                    UIApplication.shared.keyWindow?.switchRootViewController(vc)
+                    let vc = UINavigationController(rootViewController: DashboardViewController(viewModel: self.viewModel.setDashboardViewModel()))
+                    UIApplication.shared.keyWindow?.switchRootViewController(self.createTabBarController(mainVC: vc))
                 }
             } else {
                 DispatchQueue.main.async {
@@ -178,6 +178,35 @@ final class AuthViewController: UIViewController {
             }
         })
         
+    }
+    
+    private func createTabBarController(mainVC: UIViewController) -> UITabBarController {
+        let tabBarController = UITabBarController()
+        
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 15, weight: .regular, scale: .default)
+        
+        let firstVC = mainVC
+        firstVC.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(systemName: "key", withConfiguration: imageConfig), tag: 0)
+
+        let secondVC = UIViewController()
+        secondVC.view.backgroundColor = .systemBackground
+        secondVC.tabBarItem = UITabBarItem(title: "Заявки", image: UIImage(systemName: "list.bullet", withConfiguration: imageConfig), tag: 1)
+        
+        let thirdVC = UIViewController()
+        thirdVC.view.backgroundColor = .systemBackground
+        thirdVC.tabBarItem = UITabBarItem(title: "Услуги", image: UIImage(systemName: "star", withConfiguration: imageConfig), tag: 2)
+        
+        let fourthVC = UIViewController()
+        fourthVC.view.backgroundColor = .systemBackground
+        fourthVC.tabBarItem = UITabBarItem(title: "Чат", image: UIImage(systemName: "message", withConfiguration: imageConfig), tag: 3)
+        
+        let fifthVC = UIViewController()
+        fifthVC.view.backgroundColor = .systemBackground
+        fifthVC.tabBarItem = UITabBarItem(title: "Контакты", image: UIImage(systemName: "person", withConfiguration: imageConfig), tag: 4)
+        
+        tabBarController.viewControllers = [firstVC, secondVC, thirdVC, fourthVC, fifthVC]
+        
+        return tabBarController
     }
     
     @objc private func backButtonPressed() {

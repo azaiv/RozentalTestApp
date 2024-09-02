@@ -1,7 +1,5 @@
 import Foundation
 
-import Foundation
-
 enum AuthServiceError: Error {
     case invalidCredentials
     case noData
@@ -18,14 +16,14 @@ final class AuthService {
     func authenticateAndGetDashboard(
         username: String,
         password: String,
-        completion: @escaping (Result<ResponseModel, Error>) -> Void) {
+        completion: @escaping (Bool) -> Void) {
             
             var request = URLRequest(url: URL(string: Constants.URL.auth)!)
             request.httpMethod = "POST"
             
             let loginString = "\(username):\(password)"
             guard let loginData = loginString.data(using: .utf8) else {
-                completion(.failure(AuthServiceError.invalidCredentials))
+                completion(false)
                 return
             }
             let base64LoginString = loginData.base64EncodedString()
@@ -46,16 +44,17 @@ final class AuthService {
             
             let task = session.dataTask(with: request) { data, response, error in
                 if let error = error {
-                    completion(.failure(error))
+                    completion(false)
                     return
                 }
                 
                 guard let data = data else {
-                    completion(.failure(AuthServiceError.noData))
+                    completion(false)
                     return
                 }
                 
-//                self.requestDashboard(username: username, password: password, completion: completion)
+                completion(true)
+                
             }
             
             task.resume()

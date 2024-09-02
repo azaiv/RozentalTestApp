@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5526A9712C85C63B0058358A /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5526A9702C85C63B0058358A /* MessageCell.swift */; };
+		5545E5F12C849E6B00310ACC /* ServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545E5F02C849E6B00310ACC /* ServicesCell.swift */; };
+		5545E5F32C84ACCB00310ACC /* DateHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545E5F22C84ACCB00310ACC /* DateHeaderView.swift */; };
 		55846F202C81B189002CF1CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F1F2C81B189002CF1CE /* AppDelegate.swift */; };
 		55846F222C81B189002CF1CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F212C81B189002CF1CE /* SceneDelegate.swift */; };
 		55846F242C81B189002CF1CE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F232C81B189002CF1CE /* WelcomeViewController.swift */; };
@@ -22,6 +25,7 @@
 		55846F542C81D350002CF1CE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F532C81D350002CF1CE /* CustomTextField.swift */; };
 		55846F5A2C81E7A0002CF1CE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F592C81E7A0002CF1CE /* AuthViewModel.swift */; };
 		55846F5C2C81F5D4002CF1CE /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55846F5B2C81F5D4002CF1CE /* UIViewController + Ext.swift */; };
+		55DB43C12C8372210008DBA0 /* BannersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB43C02C8372210008DBA0 /* BannersCell.swift */; };
 		55FBBB802C831494001888AD /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FBBB7F2C831494001888AD /* DashboardModel.swift */; };
 		55FBBB832C831589001888AD /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FBBB822C831589001888AD /* DashboardViewController.swift */; };
 		55FBBB862C8315C8001888AD /* CustomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FBBB852C8315C8001888AD /* CustomNavigation.swift */; };
@@ -32,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5526A9702C85C63B0058358A /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		5545E5F02C849E6B00310ACC /* ServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCell.swift; sourceTree = "<group>"; };
+		5545E5F22C84ACCB00310ACC /* DateHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeaderView.swift; sourceTree = "<group>"; };
 		55846F1C2C81B189002CF1CE /* RozentalTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RozentalTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55846F1F2C81B189002CF1CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55846F212C81B189002CF1CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +56,7 @@
 		55846F532C81D350002CF1CE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		55846F592C81E7A0002CF1CE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		55846F5B2C81F5D4002CF1CE /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
+		55DB43C02C8372210008DBA0 /* BannersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersCell.swift; sourceTree = "<group>"; };
 		55FBBB7F2C831494001888AD /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
 		55FBBB822C831589001888AD /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		55FBBB852C8315C8001888AD /* CustomNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigation.swift; sourceTree = "<group>"; };
@@ -277,7 +285,11 @@
 		55FBBB892C832B9A001888AD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				5545E5F22C84ACCB00310ACC /* DateHeaderView.swift */,
+				5526A9702C85C63B0058358A /* MessageCell.swift */,
 				55FBBB8C2C832F03001888AD /* IndicationsCell.swift */,
+				55DB43C02C8372210008DBA0 /* BannersCell.swift */,
+				5545E5F02C849E6B00310ACC /* ServicesCell.swift */,
 				55FBBB8A2C832BA1001888AD /* ButtonCell.swift */,
 			);
 			path = Cell;
@@ -361,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55DB43C12C8372210008DBA0 /* BannersCell.swift in Sources */,
 				55FBBB802C831494001888AD /* DashboardModel.swift in Sources */,
 				55846F522C81CB1F002CF1CE /* AuthViewController.swift in Sources */,
 				55846F242C81B189002CF1CE /* WelcomeViewController.swift in Sources */,
@@ -375,6 +388,9 @@
 				55FBBB902C833576001888AD /* DashboardViewModel.swift in Sources */,
 				55FBBB8B2C832BA1001888AD /* ButtonCell.swift in Sources */,
 				55846F542C81D350002CF1CE /* CustomTextField.swift in Sources */,
+				5545E5F32C84ACCB00310ACC /* DateHeaderView.swift in Sources */,
+				5545E5F12C849E6B00310ACC /* ServicesCell.swift in Sources */,
+				5526A9712C85C63B0058358A /* MessageCell.swift in Sources */,
 				55846F492C81B8E6002CF1CE /* AuthModel.swift in Sources */,
 				55FBBB862C8315C8001888AD /* CustomNavigation.swift in Sources */,
 				55846F202C81B189002CF1CE /* AppDelegate.swift in Sources */,
@@ -529,6 +545,7 @@
 				INFOPLIST_FILE = "Main App/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -561,6 +578,7 @@
 				INFOPLIST_FILE = "Main App/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

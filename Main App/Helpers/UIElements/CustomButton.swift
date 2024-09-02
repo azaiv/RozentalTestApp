@@ -10,9 +10,12 @@ class CustomButton: UIButton {
         }
     }
     
+    var imageLeftSide: Bool = true
+    
     init(title: String, 
          systemImage: String? = nil) {
         super.init(frame: .zero)
+    
         
         setTitle(title, for: .normal)
         setTitleColor(.black, for: .normal)
@@ -35,14 +38,15 @@ class CustomButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func setInsets() {
         
         let titleImageSpace: CGFloat = 5
         
         contentEdgeInsets = .init(top: 10, left: 14, bottom: 10, right: 14 + titleImageSpace)
         sizeToFit()
-
+        
         let titleWidth = titleLabel?.frame.width ?? .zero
-        self.imageEdgeInsets = .init(top: 0, left: -titleImageSpace /*titleWidth + titleImageSpace*/, bottom: 0, right: titleImageSpace)
+        self.imageEdgeInsets = .init(top: 0, left: -titleImageSpace, bottom: 0, right: titleImageSpace)
     }
 }

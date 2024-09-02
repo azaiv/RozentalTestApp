@@ -40,7 +40,7 @@ struct Notifications: Codable {
 }
 
 
-struct MenuItem: Codable {
+struct MenuItem: Codable, Hashable {
     let action: String
     let name: String
     let description: String
@@ -59,7 +59,7 @@ struct MenuItem: Codable {
 }
 
 
-struct Expected: Codable {
+struct Expected: Hashable, Codable {
     let lastDate: String
     let indications: [Indication]
 
@@ -70,7 +70,7 @@ struct Expected: Codable {
 }
 
 
-struct Indication: Codable {
+struct Indication: Hashable , Codable {
     let type: String
     let label: String
     let lastTransfer: String
@@ -85,7 +85,7 @@ struct Indication: Codable {
 }
 
 
-struct Banner: Codable {
+struct Banner: Codable, Hashable {
     let title: String
     let text: String
     let image: String
@@ -94,7 +94,7 @@ struct Banner: Codable {
 }
 
 
-struct Service: Codable {
+struct Service: Codable, Hashable {
     let name: String
     let action: String
     let order: Int

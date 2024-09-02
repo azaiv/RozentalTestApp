@@ -2,52 +2,57 @@ import UIKit
 
 final class DashboardViewController: UIViewController {
     
-    typealias DataSource = UICollectionViewDiffableDataSource<DashboardSection, DashboardItem>
+    typealias DataSource = UITableViewDiffableDataSource<DashboardSection, DashboardItem>
     typealias Snapshot = NSDiffableDataSourceSnapshot<DashboardSection, DashboardItem>
     
     private var dataSource: DataSource!
     private var snapshot: Snapshot!
-    
-    private var viewModel: DashboardViewModel!
-    
+    private var viewModel: DashboardViewModelProtocol!
     private var customNavBar: CustomNavigation!
-    private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "defaultCell")
-        collectionView.register(IndicationsCell.self, forCellWithReuseIdentifier: IndicationsCell.stringID)
-        collectionView.register(ButtonCell.self, forCellWithReuseIdentifier: ButtonCell.stringID)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.backgroundColor = .systemBackground
+        tableView.separatorColor = .systemBackground
+        tableView.register(MessageCell.self, forCellReuseIdentifier: MessageCell.stringID)
+        tableView.register(IndicationsCell.self, forCellReuseIdentifier: IndicationsCell.stringID)
+        tableView.register(BannersCell.self, forCellReuseIdentifier: BannersCell.stringID)
+        tableView.register(ServicesCell.self, forCellReuseIdentifier: ServicesCell.stringID)
+        tableView.register(ButtonCell.self, forCellReuseIdentifier: ButtonCell.stringID)
+        tableView.register(DateHeaderView.self, forHeaderFooterViewReuseIdentifier: DateHeaderView.stringID)
+        tableView.delegate = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
     }()
     private lazy var activityIndicator = UIActivityIndicatorView(style: .medium)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        viewModel = DashboardViewModel()
-        
-        setupActivityIndicator()
-        
-        viewModel.getData(completion: { isSuccess in
-            if isSuccess {
-                DispatchQueue.main.async {
-                    self.setupView()
-                    self.configureDataSource()
-                    self.applySnapshot(sections: self.setupData(data: self.viewModel.data!))
-                    self.activityIndicator.removeFromSuperview()
-                }
-            }
-        })
-    
+    init(viewModel: DashboardViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupActivityIndicator()
+        
+        self.setupView()
+        self.configureDataSource()
+        self.applySnapshot(sections: self.setupData(data: self.viewModel.data!))
+        self.activityIndicator.removeFromSuperview()
+        
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         guard let profile = viewModel.data?.myProfile else { return }
-
+        
         self.setupNavigation(profile: profile)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupActivityIndicator() {
@@ -69,28 +74,29 @@ final class DashboardViewController: UIViewController {
     }
     
     private func setupView() {
-        view.addSubview(collectionView)
-
+        view.addSubview(tableView)
+        
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.readableContentGuide.topAnchor, constant: 20),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: view.readableContentGuide.topAnchor, constant: 20),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
         
-        collectionView.layer.cornerRadius = 20
-        collectionView.layer.cornerCurve = .continuous
-        collectionView.backgroundColor = .systemBackground
+        tableView.layer.cornerRadius = 20
+        tableView.layer.cornerCurve = .continuous
         
         view.backgroundColor = UIColor(named: "Blue")
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Главная"
     }
     
     private func setupNavigation(profile: MyProfile) {
         
         customNavBar = CustomNavigation(
             name: profile.shortName,
-            address: profile.address)
+            address: profile.address,
+            url: profile.photo)
         
         let navBar = navigationController!.navigationBar
         
@@ -112,70 +118,54 @@ final class DashboardViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    private func createLayout() -> UICollectionViewCompositionalLayout {
         
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
-        
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .absolute(50))
-        
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                       subitems: [item])
-        
-        group.interItemSpacing = .fixed(10)
-        
-        let section = NSCollectionLayoutSection(group: group)
-        
-        section.interGroupSpacing = 10
-        section.contentInsets = .init(top: 20, leading: 20, bottom: 5, trailing: 20)
-        
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
     }
     
     private func configureDataSource() {
-        dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+        dataSource = DataSource(tableView: tableView, cellProvider: { tableView, indexPath, item in
             switch item {
-            case .messange:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "defaultCell", for: indexPath)
-                return cell
-            case .indications(_, let image, let title, let sub):
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IndicationsCell.stringID, for: indexPath) as? IndicationsCell else {
-                    return UICollectionViewCell()
+            case .message(let count):
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: MessageCell.stringID, for: indexPath) as? MessageCell else {
+                    return UITableViewCell()
                 }
-                cell.configure(image: image, title: title, sub: sub)
+                cell.configure(count: count)
                 return cell
-            case .ads:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "defaultCell", for: indexPath)
+            case .indications(_, let item):
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: IndicationsCell.stringID, for: indexPath) as? IndicationsCell else {
+                    return UITableViewCell()
+                }
+                cell.configure(item: item)
                 return cell
-            case .horizontal:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "defaultCell", for: indexPath)
+            case .banners(let banners):
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: BannersCell.stringID) as? BannersCell else {
+                    return UITableViewCell()
+                }
+                cell.configure(banners: banners)
+                return cell
+            case .services(let service):
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: ServicesCell.stringID) as? ServicesCell else { return UITableViewCell() }
+                cell.configure(banners: service)
                 return cell
             case .button(_):
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCell.stringID, for: indexPath) as? ButtonCell else {
-                    return UICollectionViewCell()
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: ButtonCell.stringID) as? ButtonCell else {
+                    return UITableViewCell()
                 }
                 cell.configure()
                 return cell
             }
+            
         })
     }
     
     private func applySnapshot(sections: [DashboardSection]) {
         snapshot = Snapshot()
-
+        
         for item in sections {
             snapshot.appendSections([item])
             snapshot.appendItems(item.item, toSection: item)
         }
         
         dataSource.apply(snapshot)
-        self.view.layoutIfNeeded()
     }
     
     private func setupData(data: MainData) -> [DashboardSection] {
@@ -183,18 +173,20 @@ final class DashboardViewController: UIViewController {
         var menuItems: [DashboardItem] = []
         
         data.customerDashboard.menuItems.forEach({ item in
-            menuItems.append(.indications(
-                id: UUID(),
-                image: "",
-                title: item.name,
-                sub: item.description))
+            menuItems.append(.indications(id: UUID(), menu: item))
         })
         
         
         let sections: [DashboardSection] = [
+            .init(type: .messange,
+                  item: [.message(count: viewModel.data?.myNewNotifications ?? 0)]),
             .init(
                 type: .indications,
                 item: menuItems),
+            .init(type: .banners,
+                  item: [.banners(banner: data.customerDashboard.banners)]),
+            .init(type: .services,
+                  item: [.services(service: data.customerDashboard.services)]),
             .init(
                 type: .button,
                 item: [.button(id: UUID())])
@@ -206,15 +198,60 @@ final class DashboardViewController: UIViewController {
     
 }
 
-extension DashboardViewController: UICollectionViewDelegate, UIScrollViewDelegate {
+extension DashboardViewController: UITableViewDelegate, UIScrollViewDelegate {
+    
+    func tableView(_ tableView: UITableView,
+                   viewForHeaderInSection section: Int) -> UIView? {
+        let section = dataSource.sectionIdentifier(for: section)?.type
+        
+        switch section {
+        case .messange:
+            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: DateHeaderView.stringID) as? DateHeaderView else { return nil }
+            header.configure(date: viewModel.data?.customerDashboard.date ?? "")
+            return header
+        default:
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let section = dataSource.sectionIdentifier(for: section)?.type
+        
+        switch section {
+        case .messange:
+            return 50
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let section = dataSource.sectionIdentifier(for: indexPath.section)?.type
+        
+        switch section {
+        case .services:
+            return 100
+        case .banners, .button:
+            return 70
+        default:
+            return 60
+        }
+    }
+
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
+        
         let barAppearance = UINavigationBarAppearance()
         barAppearance.configureWithTransparentBackground()
         barAppearance.backgroundColor = .clear
-        
+        barAppearance.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ]
+        barAppearance.largeTitleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.clear
+        ]
         navigationItem.standardAppearance = barAppearance
     }
     
 }
+

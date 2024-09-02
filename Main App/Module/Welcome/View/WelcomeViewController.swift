@@ -41,7 +41,7 @@ class WelcomeViewController: UIViewController {
         let button = CustomButton(title: "Пригласить управлять своим домом",
                                   systemImage: "house")
         let color = UIColor(named: "Blue")
-        button.setInsets()
+        button.imageEdgeInsets = .init(top: 0, left: -8, bottom: 0, right: 8)
         button.tintColor = color
         button.setTitleColor(color, for: .normal)
         return button
@@ -51,13 +51,6 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel = WelcomeViewModel()
-        
-        AuthService.shared.requestDashboard(
-            username: "test_user",
-            password: "123456aB",
-            completion: { result in
-                
-            })
         
         setupView()
     }

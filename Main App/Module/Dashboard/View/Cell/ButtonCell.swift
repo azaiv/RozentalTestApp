@@ -1,6 +1,6 @@
 import UIKit
 
-final class ButtonCell: UICollectionViewCell {
+final class ButtonCell: UITableViewCell {
     
     static let stringID = "ButtonCell"
     
@@ -11,14 +11,18 @@ final class ButtonCell: UICollectionViewCell {
     }()
     
     func configure() {
+        
+        selectionStyle = .none
+        
         contentView.addSubview(allServiceButton)
         
         NSLayoutConstraint.activate([
-            allServiceButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-            allServiceButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            allServiceButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            allServiceButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            allServiceButton.topAnchor.constraint(equalTo: contentView.readableContentGuide.topAnchor),
+            allServiceButton.leadingAnchor.constraint(equalTo: contentView.readableContentGuide.leadingAnchor, constant: 5),
+            allServiceButton.trailingAnchor.constraint(equalTo: contentView.readableContentGuide.trailingAnchor, constant: -5),
+            allServiceButton.bottomAnchor.constraint(equalTo: contentView.readableContentGuide.bottomAnchor)
         ])
+
     }
     
 }
